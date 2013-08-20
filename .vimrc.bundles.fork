@@ -1,0 +1,18 @@
+let g:spf13_no_autochdir = 1
+
+Bundle 'joonty/vdebug'
+Bundle 'joonty/vim-phpunitqf'
+Bundle 'nono/vim-handlebars'
+Bundle 'wavded/vim-stylus'
+Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'ciaranm/detectindent'
+Bundle 'othree/html5.vim'
+Bundle 'othree/xml.vim'
+Bundle 'thinca/vim-localrc'
+Bundle 'michalliu/sourcebeautify.vim'
+Bundle 'michalliu/jsruntime.vim'
+Bundle 'michalliu/jsoncodecs.vim'
+Bundle 'mklabs/grunt.vim'
+Bundle 'jtratner/vim-flavored-markdown'
+Bundle 'adambiggs/coffeescript-vim-snippets'
+"Bundle 'alarie/requirejs.vim'

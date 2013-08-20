@@ -1,0 +1,47 @@
+" Default Formatting
+set nowrap                      " Wrap long lines
+set autoindent                  " Indent at the same level of the previous line
+set shiftwidth=2                " Use indents of 2 spaces
+set expandtab                   " Tabs are spaces, not tabs
+set tabstop=2                   " An indentation every 2 columns
+set softtabstop=2               " Let backspace delete indent
+
+" Custom key mappings
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
+" Remove trailing whitespaces and ^M chars
+autocmd FileType c,cpp,java,go,php,javascript,coffee,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+" Extra Filetypes
+autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
+
+" JSON syntax settings
+autocmd FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=1
+
+" UI Fonts
+set guifont=Source\ Code\ Pro\ for\ Powerline:h13,Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
+
+" AutoCloseTag for Handlebars
+"au FileType handlebars ru ftplugin/html/autoclosetag.vim
+
+" Indent Guides
+let g:indent_guides_guide_size = 2
+let g:indent_guides_start_level = 1
+
+" ControlP
+let g:ctrlp_root_markers = ['Gruntfile.coffee']
+let g:ctrlp_show_hidden = 1
+
+" NERDTree
+let NERDTreeShowLineNumbers = 1
+let NERDTreeIgnore = ['\.map$', '.DS_Store']
+let g:nerdtree_tabs_smart_startup_focus = 1
+
+" CoffeeScript
+au BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2 tabstop=2 softtabstop=2 foldmethod=indent foldlevel=2
+let coffee_compile_vert = 1 " Show compiled output in a vertical split
+
+" TagBar
+let g:tagbar_autoshowtag = 1
