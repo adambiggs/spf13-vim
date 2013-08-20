@@ -1,3 +1,6 @@
+" Use zsh as shell
+set shell=/bin/zsh
+
 " Default Formatting
 set nowrap                      " Wrap long lines
 set autoindent                  " Indent at the same level of the previous line
