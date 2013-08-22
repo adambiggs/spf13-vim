@@ -48,3 +48,10 @@ let coffee_compile_vert = 1 " Show compiled output in a vertical split
 
 " TagBar
 let g:tagbar_autoshowtag = 1
+
+" Markdown preview via Marked.app
+function! s:setupMarkdownPreview()
+  nnoremap <leader>md :silent !open -a Marked.app '%:p'<cr>
+endfunction
+
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPreview()
