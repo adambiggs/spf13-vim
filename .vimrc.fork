@@ -9,9 +9,13 @@ set expandtab                   " Tabs are spaces, not tabs
 set tabstop=2                   " An indentation every 2 columns
 set softtabstop=2               " Let backspace delete indent
 
-" Custom key mappings
+" Insert new lines with Enter key
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
+
+" Quick open/delete buffers by number
+nnoremap <expr> ! v:count ? ":<C-u>b<C-r>=v:count<CR><CR>" : "!"
+nnoremap <expr> ~ v:count ? ":<C-u>bd<C-r>=v:count<CR><CR>" : "~"
 
 " Remove trailing whitespaces and ^M chars
 autocmd FileType c,cpp,java,go,php,javascript,coffee,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
