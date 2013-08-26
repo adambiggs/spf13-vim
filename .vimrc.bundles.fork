@@ -1,4 +1,5 @@
 let g:spf13_no_autochdir = 1
+let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming', 'php', 'python', 'twig', 'javascript', 'html', 'misc']
 
 Bundle 'joonty/vdebug'
 Bundle 'joonty/vim-phpunitqf'
@@ -15,4 +16,5 @@ Bundle 'michalliu/jsoncodecs.vim'
 Bundle 'mklabs/grunt.vim'
 Bundle 'jtratner/vim-flavored-markdown'
 Bundle 'adambiggs/coffeescript-vim-snippets'
+Bundle 'techlivezheng/vim-plugin-minibufexpl'
 "Bundle 'alarie/requirejs.vim'
