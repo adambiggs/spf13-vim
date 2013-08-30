@@ -27,8 +27,9 @@ autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 " JSON syntax settings
 autocmd FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=1
 
-" UI Fonts
-set guifont=Source\ Code\ Pro\ for\ Powerline:h13,Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
+" User patched Powerline fonts
+"set guifont=Source\ Code\ Pro\ for\ Powerline:h13,Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
+let g:airline_powerline_fonts=1
 
 " AutoCloseTag for Handlebars
 "au FileType handlebars ru ftplugin/html/autoclosetag.vim
