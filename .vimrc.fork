@@ -30,6 +30,8 @@ autocmd FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=1
 " User patched Powerline fonts
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13,Menlo\ Regular:h15
 let g:airline_powerline_fonts=1
+unlet g:airline_left_sep
+unlet g:airline_right_sep
 
 " AutoCloseTag for Handlebars
 "au FileType handlebars ru ftplugin/html/autoclosetag.vim
