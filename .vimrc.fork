@@ -16,14 +16,6 @@ let g:airline_powerline_fonts=1
 " Custom snippet libraries
 let g:neosnippet#snippets_directory='~/.vim/bundle/coffeescript-vim-snippets'
 
-" Insert new lines with Enter key
-nmap <S-Enter> O<Esc>
-nmap <CR> o<Esc>
-
-" Quick open/delete buffers by number
-nnoremap <expr> ! v:count ? ":<C-u>b<C-r>=v:count<CR><CR>" : "!"
-nnoremap <expr> ~ v:count ? ":<C-u>bd<C-r>=v:count<CR><CR>" : "~"
-
 " Remove trailing whitespaces and ^M chars
 autocmd FileType c,cpp,java,go,php,javascript,coffee,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
@@ -65,3 +57,17 @@ function! s:setupMarkdownPreview()
   nnoremap <leader>md :silent !open -a Marked.app '%:p'<cr>
 endfunction
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPreview()
+
+
+" EXTRA KEY MAPPINGS
+
+" Easier Esc
+noremap <C-Enter> <Esc>
+
+" Insert new lines with Enter key
+nmap <Enter> o<Esc>
+nmap <S-Enter> O<Esc>
+
+" Quick open/delete buffers by number
+nnoremap <expr> ! v:count ? ":<C-u>b<C-r>=v:count<CR><CR>" : "!"
+nnoremap <expr> ~ v:count ? ":<C-u>bd<C-r>=v:count<CR><CR>" : "~"
