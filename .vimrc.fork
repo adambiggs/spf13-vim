@@ -62,8 +62,11 @@ if !exists('g:spf13_no_easyWindows')
   map <C-H> <C-W>h
 endif
 
+" NextFile
+nmap <Leader>r <ESC>:call NextFile()<CR>
+
 " Easier Esc
-noremap <C-CR> <Esc>
+inoremap <C-CR> <Esc>
 
 " Insert new lines with Enter key
 nmap <CR> o<Esc>
