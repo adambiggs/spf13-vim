@@ -1,33 +1,25 @@
 " Use zsh as shell
 set shell=/bin/zsh
 
-" Default Formatting
-set nowrap                      " Wrap long lines
-set autoindent                  " Indent at the same level of the previous line
+" Override some spf13 defaults
 set shiftwidth=2                " Use indents of 2 spaces
-set expandtab                   " Tabs are spaces, not tabs
 set tabstop=2                   " An indentation every 2 columns
 set softtabstop=2               " Let backspace delete indent
 
 " User patched Powerline fonts
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13,Menlo\ Regular:h15
-let g:airline_powerline_fonts=1
 
-" Custom snippet libraries
-let g:neosnippet#snippets_directory='~/.vim/bundle/coffeescript-vim-snippets'
-
-" Remove trailing whitespaces and ^M chars
-autocmd FileType c,cpp,java,go,php,javascript,coffee,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
-
-" Extra Filetypes
-autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
+" Remove trailing whitespaces and ^M chars from CoffeeScript files
+autocmd FileType coffee autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
 " JSON syntax settings
 autocmd FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=1
 
 " AutoCloseTag for Handlebars
 "au FileType handlebars ru ftplugin/html/autoclosetag.vim
+
+" Custom snippet libraries
+let g:neosnippet#snippets_directory = '~/.vim/bundle/coffeescript-vim-snippets'
 
 " Indent Guides
 let g:indent_guides_guide_size = 2
@@ -39,30 +31,39 @@ let g:ctrlp_show_hidden = 1
 
 " NERDTree
 let NERDTreeShowLineNumbers = 1
-let NERDTreeIgnore = ['\.map$', '.DS_Store']
+let NERDTreeIgnore = ['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.map$', '.DS_Store']
 let g:nerdtree_tabs_smart_startup_focus = 1
 
 " CoffeeScript
-au BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2 tabstop=2 softtabstop=2 foldmethod=indent foldlevel=2
+autocmd BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent foldlevel=2
 let coffee_compile_vert = 1 " Show compiled output in a vertical split
 
 " TagBar
 let g:tagbar_autoshowtag = 1
 
 " MiniBufExplorer
-let g:miniBufExplBuffersNeeded = 1
+let g:miniBufExplBuffersNeeded = 1 " Keep MBE open all the time
+let g:miniBufExplBRSplit = 0       " Put MBE at the top
 
 " Markdown preview via Marked.app
 function! s:setupMarkdownPreview()
   nnoremap <leader>md :silent !open -a Marked.app '%:p'<cr>
 endfunction
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPreview()
+autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPreview()
 
 
-" EXTRA KEY MAPPINGS
+" KEY MAPPINGS
+
+" Disable the default spf13 window resizing behavior
+if !exists('g:spf13_no_easyWindows')
+  map <C-J> <C-W>j
+  map <C-K> <C-W>k
+  map <C-L> <C-W>l
+  map <C-H> <C-W>h
+endif
 
 " Easier Esc
-inoremap <C-CR> <Esc>
+noremap <C-CR> <Esc>
 
 " Insert new lines with Enter key
 nmap <CR> o<Esc>
