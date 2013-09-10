@@ -62,11 +62,11 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPreview
 " EXTRA KEY MAPPINGS
 
 " Easier Esc
-noremap <C-Enter> <Esc>
+inoremap <C-CR> <Esc>
 
 " Insert new lines with Enter key
-nmap <Enter> o<Esc>
-nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+nmap <S-CR> O<Esc>
 
 " Quick open/delete buffers by number
 nnoremap <expr> ! v:count ? ":<C-u>b<C-r>=v:count<CR><CR>" : "!"
