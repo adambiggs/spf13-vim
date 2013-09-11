@@ -63,7 +63,7 @@ if !exists('g:spf13_no_easyWindows')
 endif
 
 " NextFile
-nmap <Leader>r <ESC>:call NextFile()<CR>
+"nmap <Leader>r <ESC>:call NextFile()<CR>
 
 " Easier Esc
 inoremap <C-CR> <Esc>
