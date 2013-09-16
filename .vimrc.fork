@@ -67,6 +67,7 @@ endif
 
 " Easier Esc
 inoremap <C-CR> <Esc>
+vnoremap <C-CR> <Esc>
 
 " Insert new lines with Enter key
 nmap <CR> o<Esc>
