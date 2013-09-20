@@ -9,9 +9,6 @@ set softtabstop=2               " Let backspace delete indent
 " User patched Powerline fonts
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13,Menlo\ Regular:h15
 
-" Remove trailing whitespaces and ^M chars from CoffeeScript files
-autocmd FileType coffee autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-
 " JSON syntax settings
 autocmd FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=1
 
@@ -35,7 +32,8 @@ let NERDTreeIgnore = ['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.sv
 let g:nerdtree_tabs_smart_startup_focus = 1
 
 " CoffeeScript
-autocmd BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent foldlevel=2
+autocmd FileType coffee setlocal foldmethod=indent foldlevel=2
+autocmd FileType coffee autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 let coffee_compile_vert = 1 " Show compiled output in a vertical split
 
 " TagBar
@@ -72,6 +70,9 @@ vnoremap <C-CR> <Esc>
 " Insert new lines with Enter key
 nmap <CR> o<Esc>
 nmap <S-CR> O<Esc>
+
+" Center cursor with spacebar in normal mode
+nnoremap <Space> zz
 
 " Quick open/delete buffers by number
 nnoremap <expr> ! v:count ? ":<C-u>b<C-r>=v:count<CR><CR>" : "!"
