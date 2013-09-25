@@ -73,7 +73,3 @@ nmap <S-CR> O<Esc>
 
 " Center cursor with spacebar in normal mode
 nnoremap <Space> zz
-
-" Quick open/delete buffers by number
-nnoremap <expr> ! v:count ? ":<C-u>b<C-r>=v:count<CR><CR>" : "!"
-nnoremap <expr> ~ v:count ? ":<C-u>bd<C-r>=v:count<CR><CR>" : "~"
