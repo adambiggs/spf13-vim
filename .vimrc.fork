@@ -2,9 +2,9 @@
 set shell=/bin/zsh
 
 " Override some spf13 defaults
-set shiftwidth=2                " Use indents of 2 spaces
-set tabstop=2                   " An indentation every 2 columns
-set softtabstop=2               " Let backspace delete indent
+set shiftwidth=2  " Use indents of 2 spaces
+set tabstop=2     " An indentation every 2 columns
+set softtabstop=2 " Let backspace delete indent
 
 " User patched Powerline fonts
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13,Menlo\ Regular:h15
@@ -21,6 +21,10 @@ let g:neosnippet#snippets_directory = '~/.vim/bundle/coffeescript-vim-snippets'
 " Indent Guides
 let g:indent_guides_guide_size = 2
 let g:indent_guides_start_level = 1
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1        " Enable advanced tabline
+let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer numbers
 
 " ControlP
 let g:ctrlp_root_markers = ['Gruntfile.coffee']
@@ -39,10 +43,6 @@ let coffee_compile_vert = 1 " Show compiled output in a vertical split
 " TagBar
 let g:tagbar_autoshowtag = 1
 
-" MiniBufExplorer
-let g:miniBufExplBuffersNeeded = 1 " Keep MBE open all the time
-let g:miniBufExplBRSplit = 0       " Put MBE at the top
-
 " Markdown preview via Marked.app
 function! s:setupMarkdownPreview()
   nnoremap <leader>md :silent !open -a Marked.app '%:p'<cr>
@@ -50,7 +50,7 @@ endfunction
 autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPreview()
 
 
-" KEY MAPPINGS
+" EXTRA KEY MAPPINGS "
 
 " Disable the default spf13 window resizing behavior
 if !exists('g:spf13_no_easyWindows')
