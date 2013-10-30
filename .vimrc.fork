@@ -12,9 +12,6 @@ set guifont=Source\ Code\ Pro\ for\ Powerline:h13,Menlo\ Regular:h15
 " JSON syntax settings
 autocmd FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=1
 
-" AutoCloseTag for Handlebars
-"au FileType handlebars ru ftplugin/html/autoclosetag.vim
-
 " Custom snippet libraries
 let g:neosnippet#snippets_directory = '~/.vim/bundle/coffeescript-vim-snippets'
 
