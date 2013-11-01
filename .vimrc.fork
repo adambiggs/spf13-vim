@@ -65,8 +65,7 @@ endif
 "nmap <Leader>r <ESC>:call NextFile()<CR>
 
 " Easier Esc
-inoremap <C-CR> <Esc>
-vnoremap <C-CR> <Esc>
+noremap <C-CR> <Esc>
 
 " Insert new lines with Enter key
 nmap <CR> o<Esc>
