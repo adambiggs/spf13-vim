@@ -32,6 +32,10 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>', '<c-cr'],
   \ }
 
+" UndoTree
+let g:undotree_SplitWidth = 35
+let g:undotree_TreeNodeShape = '◉'
+
 " NERDTree
 let NERDTreeShowLineNumbers = 1
 let NERDTreeIgnore = ['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.map$', '.DS_Store']
