@@ -24,9 +24,13 @@ let g:airline#extensions#tabline#enabled = 1                " Enable advanced ta
 let g:airline#extensions#tabline#buffer_nr_show = 1         " Show buffer numbers
 let g:airline#extensions#tabline#formatter = 'unique_tail'  " Change the default display for file paths
 
-" ControlP
+" CtrlP
 let g:ctrlp_root_markers = ['Gruntfile.coffee']
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("h")': ['<c-x>', '<c-s>'],
+  \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>', '<c-cr'],
+  \ }
 
 " NERDTree
 let NERDTreeShowLineNumbers = 1
