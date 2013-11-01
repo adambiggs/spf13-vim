@@ -61,8 +61,9 @@ if !exists('g:spf13_no_easyWindows')
   map <C-H> <C-W>h
 endif
 
-" NextFile
-"nmap <Leader>r <ESC>:call NextFile()<CR>
+" Zoom current split
+nnoremap <Leader>- <C-W><Bar>
+nnoremap <Leader>_ <C-W>_
 
 " Easier Esc
 noremap <C-CR> <Esc>
