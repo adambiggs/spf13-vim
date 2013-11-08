@@ -29,6 +29,7 @@ let g:miniBufExplBRSplit = 0        " Put MBE at the top of the screen
 let g:miniBufExplBuffersNeeded = 0  " Always show MBE
 
 " CtrlP
+let g:ctrlp_extensions = ['buffertag']          " Enable searching for CTAGS in the current buffer
 let g:ctrlp_root_markers = ['Gruntfile.coffee']
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_prompt_mappings = {
@@ -52,13 +53,14 @@ let coffee_compile_vert = 1 " Show compiled output in a vertical split
 
 " TagBar
 let g:tagbar_autoshowtag = 1      " Open folds if necessary when navigating to a tag
-let g:tagbar_autofocus = 1        " Focus cursor inside tagbar when opened
+let g:tagbar_autoclose = 1        " Focus cursor inside tagbar when opened, and auto close after navigation
 let g:tagbar_show_linenumbers = 2 " Show relative line numbers
 let g:tagbar_foldlevel = 1        " Custom fold level
 
 " QuickHL
 let g:quickhl_cword_enable_at_startup = 1
 let g:quickhl_cword_hl_command = 'link QuickhlCword QuickhlTag' " Change default word highlighting to be less annoying
+autocmd BufRead,BufNewFile * call quickhl#cword#enable()        " Hack alert! `g:quickhl_..._enable_at_startup` doesn't seem to work...
 
 " Markdown preview via Marked.app
 function! s:setupMarkdownPreview()
@@ -69,19 +71,17 @@ autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPr
 
 " EXTRA KEY MAPPINGS "
 
-" Disable the default spf13 window resizing behavior
-if !exists('g:spf13_no_easyWindows')
-  map <C-J> <C-W>j
-  map <C-K> <C-W>k
-  map <C-L> <C-W>l
-  map <C-H> <C-W>h
-endif
 " Reset MBE window position after moving windows
 map <C-w>H <C-w>H:MBEOpen!<CR><Leader>=
 map <C-w>J <C-w>J:MBEOpen!<CR><Leader>=
 map <C-w>K <C-w>K:MBEOpen!<CR><Leader>=
 map <C-w>L <C-w>L:MBEOpen!<CR><Leader>=
 
+" Like spf13 'easyWindows' mapping, but without the window resizing
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-L> <C-W>l
+map <C-H> <C-W>h
 
 " Zoom current split
 nnoremap <Leader>- <C-W><Bar>
