@@ -18,6 +18,7 @@ Bundle 'kshenoy/vim-signature'
 Bundle 't9md/vim-quickhl'
 Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'techlivezheng/vim-plugin-minibufexpl'
+Bundle 'osyo-manga/vim-over'
 
 "Bundle 'mklabs/grunt.vim'
 "Bundle 'bighostkim/nextfile.vim'

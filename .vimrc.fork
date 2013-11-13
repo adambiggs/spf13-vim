@@ -93,3 +93,6 @@ nmap <S-CR> O<Esc>
 
 " Center cursor with spacebar in normal mode
 nnoremap <Space> zz
+
+" Vim-Over
+nnoremap <C-s> :OverCommandLine<CR>%s/
