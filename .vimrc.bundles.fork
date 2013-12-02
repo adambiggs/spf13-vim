@@ -19,6 +19,8 @@ Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'osyo-manga/vim-over'
 Bundle 'rking/ag.vim'
+Bundle 'benmills/vimux'
+Bundle 'christoomey/vim-tmux-navigator'
 
 "Bundle 'tpope/vim-dispatch'
 "Bundle 'mklabs/grunt.vim'
