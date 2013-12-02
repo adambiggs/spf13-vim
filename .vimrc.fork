@@ -9,11 +9,9 @@ set softtabstop=2 " Let backspace delete indent
 " User patched Powerline fonts
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13,Menlo\ Regular:h15
 
-" JSON syntax settings
-autocmd FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=1
+" Highlight column 80
+set colorcolumn=80
 
-" Custom snippet libraries
-let g:neosnippet#snippets_directory = '~/.vim/bundle/coffeescript-vim-snippets'
 
 " Indent Guides
 let g:indent_guides_guide_size = 2
@@ -46,11 +44,6 @@ let NERDTreeShowLineNumbers = 1
 let NERDTreeIgnore = ['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.map$', '.DS_Store']
 let g:nerdtree_tabs_smart_startup_focus = 1
 
-" CoffeeScript
-autocmd FileType coffee setlocal foldmethod=indent foldlevel=2
-autocmd FileType coffee autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-let coffee_compile_vert = 1 " Show compiled output in a vertical split
-
 " TagBar
 let g:tagbar_autoshowtag = 1      " Open folds if necessary when navigating to a tag
 let g:tagbar_autoclose = 1        " Focus cursor inside tagbar when opened, and auto close after navigation
@@ -60,7 +53,19 @@ let g:tagbar_foldlevel = 1        " Custom fold level
 " QuickHL
 let g:quickhl_cword_enable_at_startup = 1
 let g:quickhl_cword_hl_command = 'link QuickhlCword QuickhlTag' " Change default word highlighting to be less annoying
-autocmd BufRead,BufNewFile * call quickhl#cword#enable()        " Hack alert! `g:quickhl_..._enable_at_startup` doesn't seem to work...
+autocmd InsertLeave * call quickhl#cword#enable()               " Hack alert! `g:quickhl_..._enable_at_startup` doesn't seem to work...
+
+" JSON syntax settings
+autocmd FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=1
+
+" Custom snippet libraries
+let g:neosnippet#snippets_directory = '~/.vim/bundle/coffeescript-vim-snippets'
+
+" CoffeeScript
+autocmd FileType coffee setlocal foldmethod=indent foldlevel=2
+autocmd FileType coffee autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+let coffee_compile_vert = 1 " Show compiled output in a vertical split
+
 
 " Markdown preview via Marked.app
 function! s:setupMarkdownPreview()
@@ -77,11 +82,8 @@ map <C-w>J <C-w>J:MBEOpen!<CR><Leader>=
 map <C-w>K <C-w>K:MBEOpen!<CR><Leader>=
 map <C-w>L <C-w>L:MBEOpen!<CR><Leader>=
 
-" Like spf13 'easyWindows' mapping, but without the window resizing
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-L> <C-W>l
-map <C-H> <C-W>h
+" Disable spf13 'easyWindows' mappings
+let g:spf13_no_easyWindows = 1
 
 " Zoom current split
 nnoremap <Leader>- <C-W><Bar>
