@@ -38,10 +38,6 @@ let g:miniBufExplBuffersNeeded = 0  " Always show MBE
 let g:ctrlp_extensions = ['buffertag']          " Enable searching for CTAGS in the current buffer
 let g:ctrlp_root_markers = ['Gruntfile.coffee']
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_prompt_mappings = {
-  \ 'AcceptSelection("h")': ['<c-x>', '<c-s>'],
-  \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>', '<c-cr'],
-  \ }
 
 " UndoTree
 let g:undotree_SplitWidth = 35
@@ -63,6 +59,9 @@ let g:quickhl_cword_enable_at_startup = 1
 let g:quickhl_cword_hl_command = 'link QuickhlCword QuickhlTag' " Change default word highlighting to be less annoying
 autocmd InsertLeave * call quickhl#cword#enable()               " Hack alert! `g:quickhl_..._enable_at_startup` doesn't seem to work...
 
+" AutoClose
+let g:autoclose_vim_commentmode = 1
+
 " JSON syntax settings
 autocmd FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=1
 
@@ -83,6 +82,12 @@ autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPr
 
 
 " EXTRA KEY MAPPINGS "
+
+" Unbind <Esc> key to prevent lag when exiting insert mode
+unmap <Esc>[H
+unmap <Esc>[F
+iunmap <Esc>[H
+iunmap <Esc>[F
 
 " Reset MBE window position after moving windows
 map <C-w>H <C-w>H:MBEOpen!<CR><Leader>=
