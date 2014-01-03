@@ -39,6 +39,11 @@ let g:ctrlp_extensions = ['buffertag']          " Enable searching for CTAGS in 
 let g:ctrlp_root_markers = ['Gruntfile.coffee']
 let g:ctrlp_show_hidden = 1
 
+" Syntastic
+let g:syntastic_mode_map = { 'mode': 'active',
+  \ 'active_filetypes': [],
+  \ 'passive_filetypes': ['html'] }
+
 " UndoTree
 let g:undotree_SplitWidth = 35
 let g:undotree_TreeNodeShape = '◉'
