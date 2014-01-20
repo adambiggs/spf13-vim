@@ -13,8 +13,9 @@ set guifont=Source\ Code\ Pro\ for\ Powerline:h13,Menlo\ Regular:h15
 set colorcolumn=80
 
 " Solarized options
-let g:solarized_termcolors = 16
-let g:solarized_termtrans = 0
+"let g:solarized_termcolors = 256
+"let g:solarized_termtrans = 0
+"let g:solarized_degrade = 1
 set background=dark
 colorscheme solarized
 
@@ -63,6 +64,9 @@ let g:tagbar_foldlevel = 1        " Custom fold level
 let g:quickhl_cword_enable_at_startup = 1
 let g:quickhl_cword_hl_command = 'link QuickhlCword QuickhlTag' " Change default word highlighting to be less annoying
 autocmd InsertLeave * call quickhl#cword#enable()               " Hack alert! `g:quickhl_..._enable_at_startup` doesn't seem to work...
+
+" Sneak
+let g:sneak#streak = 1
 
 " AutoClose
 let g:autoclose_vim_commentmode = 1
