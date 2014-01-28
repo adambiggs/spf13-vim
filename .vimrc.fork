@@ -92,6 +92,13 @@ autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPr
 
 " EXTRA KEY MAPPINGS "
 
+" OSX clipboard
+noremap y "*y
+noremap yy "*Y
+
+" Preserve indentation while pasting text from the OS X clipboard
+noremap p :set paste<CR>:put  *<CR>:set nopaste<CR>
+
 " Unbind <Esc> key to prevent lag when exiting insert mode
 unmap <Esc>[H
 unmap <Esc>[F
