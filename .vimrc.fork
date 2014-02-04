@@ -54,6 +54,10 @@ let NERDTreeShowLineNumbers = 1
 let NERDTreeIgnore = ['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.map$', '.DS_Store']
 let g:nerdtree_tabs_smart_startup_focus = 1
 
+" Numbers
+autocmd BufEnter * call NumbersEnable() " Brute-force fix to make less buggy
+autocmd BufLeave * set number
+
 " TagBar
 let g:tagbar_autoshowtag = 1      " Open folds if necessary when navigating to a tag
 let g:tagbar_autoclose = 1        " Focus cursor inside tagbar when opened, and auto close after navigation
