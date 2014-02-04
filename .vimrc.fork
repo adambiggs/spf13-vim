@@ -82,7 +82,6 @@ autocmd FileType coffee setlocal foldmethod=indent foldlevel=2
 autocmd FileType coffee autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 let coffee_compile_vert = 1 " Show compiled output in a vertical split
 
-
 " Markdown preview via Marked.app
 function! s:setupMarkdownPreview()
   nnoremap <leader>md :silent !open -a Marked.app '%:p'<cr>
@@ -91,13 +90,6 @@ autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPr
 
 
 " EXTRA KEY MAPPINGS "
-
-" OSX clipboard
-noremap y "*y
-noremap yy "*Y
-
-" Preserve indentation while pasting text from the OS X clipboard
-noremap p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 " Unbind <Esc> key to prevent lag when exiting insert mode
 unmap <Esc>[H
