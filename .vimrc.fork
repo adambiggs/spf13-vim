@@ -71,6 +71,7 @@ autocmd InsertLeave * call quickhl#cword#enable()               " Hack alert! `g
 
 " Sneak
 let g:sneak#streak = 1
+let g:sneak#s_next = 0
 
 " AutoClose
 let g:autoclose_vim_commentmode = 1
