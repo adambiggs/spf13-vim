@@ -95,12 +95,6 @@ autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPr
 
 " EXTRA KEY MAPPINGS "
 
-" Unbind <Esc> key to prevent lag when exiting insert mode
-unmap <Esc>[H
-unmap <Esc>[F
-iunmap <Esc>[H
-iunmap <Esc>[F
-
 " Reset MBE window position after moving windows
 map <C-w>H <C-w>H:MBEOpen!<CR><Leader>=
 map <C-w>J <C-w>J:MBEOpen!<CR><Leader>=
