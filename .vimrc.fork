@@ -19,6 +19,10 @@ set colorcolumn=80
 set background=dark
 colorscheme solarized
 
+" Make local .vimrc files match SPF13 naming convention
+let g:localrc_filename = '.vimrc.local'
+let g:localrc_filetype = '/^\.vimrc\..*\<%s\>.*\.local$'
+
 " Indent Guides
 let g:indent_guides_guide_size = 2
 let g:indent_guides_start_level = 1
