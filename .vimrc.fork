@@ -61,6 +61,12 @@ let g:ctrlp_show_hidden  = 1
 let g:ctrlp_lazy_update  = 100
 
 
+" Ack
+let g:ack_use_dispatch     = 1
+let g:ackhighlight         = 1
+let g:ack_autofold_results = 1
+
+
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
   \ 'active_filetypes': [],
