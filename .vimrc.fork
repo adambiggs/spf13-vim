@@ -1,16 +1,20 @@
 " Use zsh as shell
 set shell=/bin/zsh
 
+
 " Override some spf13 defaults
 set shiftwidth=2  " Use indents of 2 spaces
 set tabstop=2     " An indentation every 2 columns
 set softtabstop=2 " Let backspace delete indent
 
+
 " User patched Powerline fonts
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13,Menlo\ Regular:h15
 
+
 " Highlight column 80
 set colorcolumn=80
+
 
 " Solarized options
 "let g:solarized_termcolors = 256
@@ -19,59 +23,72 @@ set colorcolumn=80
 set background=dark
 colorscheme solarized
 
+
 " Make local .vimrc files match SPF13 naming convention
 let g:localrc_filename = '.vimrc.local'
 let g:localrc_filetype = '/^\.vimrc\..*\<%s\>.*\.local$'
 
+
 " Indent Guides
-let g:indent_guides_guide_size = 2
+let g:indent_guides_guide_size  = 2
 let g:indent_guides_start_level = 1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=8
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=0
 
+
 " Airline
-let g:airline#extensions#tabline#enabled = 1        " Enable tabline
+let g:airline#extensions#tabline#enabled       = 1  " Enable tabline
 let g:airline#extensions#tabline#tab_min_count = 2  " Only show tabline if using multiple tabs
-let g:airline#extensions#tabline#show_buffers = 0   " Use MBE for buffers instead
+let g:airline#extensions#tabline#show_buffers  = 0  " Use MBE for buffers instead
+
 
 " Tmuxline
-let g:tmuxline_theme = 'airline_insert'
-let g:tmuxline_preset = 'full'
+let g:tmuxline_theme                      = 'airline_insert'
+let g:tmuxline_preset                     = 'full'
 let g:airline#extensions#tmuxline#enabled = 0
 
+
 " MiniBufExplorer
-let g:miniBufExplBRSplit = 0        " Put MBE at the top of the screen
+let g:miniBufExplBRSplit       = 0  " Put MBE at the top of the screen
 let g:miniBufExplBuffersNeeded = 0  " Always show MBE
 
+
 " CtrlP
-let g:ctrlp_extensions = ['buffertag']          " Enable searching for CTAGS in the current buffer
+let g:ctrlp_extensions   = ['buffertag']          " Enable searching for CTAGS in the current buffer
 let g:ctrlp_root_markers = ['Gruntfile.coffee']
-let g:ctrlp_show_hidden = 1
+let g:ctrlp_show_hidden  = 1
+let g:ctrlp_lazy_update  = 100
+
 
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
   \ 'active_filetypes': [],
   \ 'passive_filetypes': ['html'] }
 
+
 " UndoTree
-let g:undotree_SplitWidth = 35
+let g:undotree_SplitWidth    = 35
 let g:undotree_TreeNodeShape = '◉'
 
+
 " NERDTree
-let NERDTreeShowLineNumbers = 1
-let NERDTreeIgnore = ['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.map$', '.DS_Store']
+let NERDTreeShowLineNumbers             = 1
+let NERDTreeIgnore                      = ['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.map$', '.DS_Store']
 let g:nerdtree_tabs_smart_startup_focus = 1
+
 
 " Numbers
 autocmd BufEnter * call NumbersEnable() " Brute-force fix to make less buggy
 autocmd BufLeave * set number
 
+
 " TagBar
-let g:tagbar_autoshowtag = 1      " Open folds if necessary when navigating to a tag
-let g:tagbar_autoclose = 1        " Focus cursor inside tagbar when opened, and auto close after navigation
-let g:tagbar_show_linenumbers = 2 " Show relative line numbers
-let g:tagbar_foldlevel = 1        " Custom fold level
+let g:tagbar_autoshowtag      = 1  " Open folds if necessary when navigating to a tag
+let g:tagbar_autoclose        = 1  " Focus cursor inside tagbar when opened, and auto close after navigation
+let g:tagbar_show_linenumbers = 2  " Show relative line numbers
+let g:tagbar_foldlevel        = 1  " Custom fold level
+
 
 " QuickHL
 let g:quickhl_cword_enable_at_startup = 1
@@ -85,16 +102,19 @@ let g:sneak#s_next = 0
 " AutoClose
 let g:autoclose_vim_commentmode = 1
 
+
 " JSON syntax settings
 autocmd FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=1
 
 " Custom snippet libraries
 let g:neosnippet#snippets_directory = '~/.vim/bundle/coffeescript-vim-snippets'
 
+
 " CoffeeScript
+let coffee_compile_vert = 1 " Show compiled output in a vertical split
 autocmd FileType coffee setlocal foldmethod=indent foldlevel=2
 autocmd FileType coffee autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-let coffee_compile_vert = 1 " Show compiled output in a vertical split
+
 
 " Markdown preview via Marked.app
 function! s:setupMarkdownPreview()
@@ -103,13 +123,16 @@ endfunction
 autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPreview()
 
 
+
 " EXTRA KEY MAPPINGS "
+
 
 " Reset MBE window position after moving windows
 map <C-w>H <C-w>H:MBEOpen!<CR><Leader>=
 map <C-w>J <C-w>J:MBEOpen!<CR><Leader>=
 map <C-w>K <C-w>K:MBEOpen!<CR><Leader>=
 map <C-w>L <C-w>L:MBEOpen!<CR><Leader>=
+
 
 " Disable spf13 'easyWindows' mappings
 let g:spf13_no_easyWindows = 1
@@ -118,15 +141,19 @@ let g:spf13_no_easyWindows = 1
 nnoremap <Leader>- <C-W><Bar>
 nnoremap <Leader>_ <C-W>_
 
+
 " Insert new lines with Enter key
 nmap <CR> o<Esc>
 nmap <S-CR> O<Esc>
 
+
 " Center cursor with spacebar in normal mode
 nnoremap <Space> zz
 
+
 " Vim-Over
 nnoremap <C-f> :OverCommandLine<CR>%s/
+
 
 " Tmux commands
 noremap <Leader>tst :call VimuxSendKeys("C-c") <Bar> call VimuxRunCommand("clear; npm test")<CR>
