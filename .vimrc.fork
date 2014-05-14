@@ -109,6 +109,14 @@ let g:autoclose_vim_commentmode = 1
 " JSON syntax settings
 autocmd FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=1
 
+
+" Syntax highlighting for Vagrantfile
+augroup vagrant
+  au!
+  au BufRead,BufNewFile Vagrantfile set filetype=ruby
+augroup END
+
+
 " Custom snippet libraries
 let g:neosnippet#snippets_directory = '~/.vim/bundle/coffeescript-vim-snippets'
 
