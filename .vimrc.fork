@@ -127,6 +127,14 @@ autocmd FileType coffee setlocal foldmethod=indent foldlevel=2
 autocmd FileType coffee autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
 
+" CoffeeTags
+let g:CoffeeAutoTagIncludeVars = 1
+
+
+" Handlebars
+let g:mustache_abbreviations = 1
+
+
 " Markdown preview via Marked.app
 function! s:setupMarkdownPreview()
   nnoremap <leader>md :silent !open -a Marked.app '%:p'<cr>
