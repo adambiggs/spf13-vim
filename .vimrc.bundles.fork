@@ -40,3 +40,11 @@ Plugin 'adambiggs/coffeescript-vim-snippets'
 "Plugin 'othree/javascript-libraries-syntax.vim'
 "Plugin 't9md/vim-quickhl'
 "Plugin 'nelstrom/vim-visual-star-search'
+"Plugin 'Yggdroot/indentLine' " Breaks some syntax highlighting.
+
+" Unbundled
+UnBundle 'bling/vim-bufferline'
+UnBundle 'tpope/vim-cucumber'
+UnBundle 'quentindecock/vim-cucumber-align-pipes'
+UnBundle 'justinmk/vim-sneak'
+UnBundle 'godlygeek/csapprox'
