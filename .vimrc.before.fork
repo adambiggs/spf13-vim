@@ -1,3 +1,6 @@
+" Use a stripped-down subset of the default SPF13 plugin groups
+let g:spf13_bundle_groups = ['general', 'youcompleteme', 'programming', 'php', 'python', 'twig', 'javascript', 'html', 'misc']
+
 " Prevent automatically changing to open file directory
 let g:spf13_no_autochdir = 1
 
@@ -8,7 +11,7 @@ let g:spf13_no_autochdir = 1
 "   let g:spf13_leader='\'
 
 " Disable easier moving in tabs and windows
-"   let g:spf13_no_easyWindows = 1
+let g:spf13_no_easyWindows = 1
 
 " Disable fast tab navigation
 let g:spf13_no_fastTabs = 1

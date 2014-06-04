@@ -69,6 +69,26 @@ let g:ctrlp_show_hidden  = 1
 let g:ctrlp_lazy_update  = 100
 
 
+" YouCompleteMe
+let g:ycm_min_num_of_chars_for_completion     = 1
+let g:ycm_complete_in_comments                = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax        = 1
+let g:ycm_semantic_triggers =  {
+  \   'c' : ['->', '.'],
+  \   'objc' : ['->', '.'],
+  \   'ocaml' : ['.', '#'],
+  \   'cpp,objcpp' : ['->', '.', '::'],
+  \   'perl' : ['->'],
+  \   'php' : ['->', '::'],
+  \   'cs,java,javascript,d,vim,python,perl6,scala,vb,elixir,go' : ['.'],
+  \   'coffee' : ['.', '::'],
+  \   'ruby' : ['.', '::'],
+  \   'lua' : ['.', ':'],
+  \   'erlang' : [':'],
+  \ }
+
+
 " Ack
 let g:ack_use_dispatch     = 1
 let g:ackhighlight         = 1
@@ -151,7 +171,7 @@ autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPr
 
 
 
-" EXTRA KEY MAPPINGS "
+" KEY MAPPINGS "
 
 
 " Reset MBE window position after moving windows
@@ -160,9 +180,6 @@ map <C-w>J <C-w>J:MBEOpen!<CR><Leader>=
 map <C-w>K <C-w>K:MBEOpen!<CR><Leader>=
 map <C-w>L <C-w>L:MBEOpen!<CR><Leader>=
 
-
-" Disable spf13 'easyWindows' mappings
-let g:spf13_no_easyWindows = 1
 
 " Zoom current split
 nnoremap <Leader>- <C-W><Bar>

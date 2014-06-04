@@ -1,5 +1,3 @@
-let g:spf13_bundle_groups = ['general', 'neocomplcache', 'programming', 'php', 'python', 'twig', 'javascript', 'html', 'misc']
-
 " Testing/debugging
 Plugin 'joonty/vdebug'
 Plugin 'joonty/vim-phpunitqf'
@@ -33,7 +31,14 @@ Plugin 'tpope/vim-dispatch'
 " Snippets
 Plugin 'adambiggs/coffeescript-vim-snippets'
 
-" Deactivated
+" Unbundled
+UnBundle 'bling/vim-bufferline'
+UnBundle 'tpope/vim-cucumber'
+UnBundle 'quentindecock/vim-cucumber-align-pipes'
+UnBundle 'justinmk/vim-sneak'
+UnBundle 'godlygeek/csapprox'
+
+" Deactivated (for now)
 "Plugin 'mklabs/grunt.vim'
 "Plugin 'bighostkim/nextfile.vim'
 "Plugin 'alarie/requirejs.vim'
@@ -41,10 +46,3 @@ Plugin 'adambiggs/coffeescript-vim-snippets'
 "Plugin 't9md/vim-quickhl'
 "Plugin 'nelstrom/vim-visual-star-search'
 "Plugin 'Yggdroot/indentLine' " Breaks some syntax highlighting.
-
-" Unbundled
-UnBundle 'bling/vim-bufferline'
-UnBundle 'tpope/vim-cucumber'
-UnBundle 'quentindecock/vim-cucumber-align-pipes'
-UnBundle 'justinmk/vim-sneak'
-UnBundle 'godlygeek/csapprox'
