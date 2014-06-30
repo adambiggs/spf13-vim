@@ -1,204 +1,249 @@
-" Use zsh as shell
-set shell=/bin/zsh
-
-
-" Override some spf13 defaults
-set shiftwidth=2  " Use indents of 2 spaces
-set tabstop=2     " An indentation every 2 columns
-set softtabstop=2 " Let backspace delete indent
-
-
-" User patched Powerline fonts
-set guifont=Source\ Code\ Pro\ for\ Powerline:h13,Menlo\ Regular:h15
-
-
-" Highlight column 80
-set colorcolumn=80
-
-
-" Solarized options
-let g:solarized_termcolors = 16 " TODO: Is there a way to only run this if inside iTerm?
-set background=dark
-colorscheme solarized
-
-
-" Make local .vimrc files match SPF13 naming convention
-let g:localrc_filename = '.vimrc.local'
-let g:localrc_filetype = '/^\.vimrc\..*\<%s\>.*\.local$'
-
-
-" Indent Guides
-let g:indent_guides_guide_size  = 2
-let g:indent_guides_start_level = 1
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=NONE
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=Black
-
-
-" Airline
-let g:airline_exclude_preview                  = 1
-"let g:airline#extensions#tabline#enabled       = 1  " Enable tabline
-"let g:airline#extensions#tabline#tab_min_count = 2  " Only show tabline if using multiple tabs
-"let g:airline#extensions#tabline#show_buffers  = 0  " Use MBE for buffers instead
-
-
-" Tmux
-if exists('$TMUX')
-  " Different cursor for insert mode
-  let &t_SI = "\<Esc>[3 q"
-  let &t_EI = "\<Esc>[0 q"
-endif
-
-
-" Tmuxline
-let g:tmuxline_preset = 'crosshair'
-"let g:tmuxline_theme  = 'airline_insert'
-"let g:airline#extensions#tmuxline#enabled = 0
-
-
-" CtrlP
-let g:ctrlp_extensions   = ['buffertag']          " Enable searching for CTAGS in the current buffer
-let g:ctrlp_root_markers = ['Gruntfile.coffee']
-let g:ctrlp_show_hidden  = 1
-let g:ctrlp_lazy_update  = 100
-
-
-" YouCompleteMe
-let g:ycm_min_num_of_chars_for_completion     = 1
-let g:ycm_complete_in_comments                = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_seed_identifiers_with_syntax        = 1
-let g:ycm_cache_omnifunc                      = 0
-let g:ycm_key_list_previous_completion        = ['<C-Tab>', '<Up>']
-let g:ctrlspace_load_last_workspace_on_start  = 1
-let g:ctrlspace_save_workspace_on_exit        = 1
-
-
-" Ack
-let g:ack_use_dispatch     = 1
-let g:ackhighlight         = 1
-let g:ack_autofold_results = 1
-
-
-" Syntastic
-let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [],
-  \ 'passive_filetypes': ['html'] }
-
-
-" UndoTree
-let g:undotree_SplitWidth    = 35
-let g:undotree_TreeNodeShape = '◉'
-
-
-" NERDTree
-let NERDTreeShowLineNumbers             = 1
-let NERDTreeIgnore                      = ['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.map$', '.DS_Store']
-let NERDTreeMapOpenVSplit               = 'v'
-let NERDTreeAutoCenterThreshold         = 50
-let NERDTreeShowBookmarks               = 0
-let NERDTreeAutoDeleteBuffer            = 1
-let g:nerdtree_tabs_smart_startup_focus = 1
-
-
-" Numbers
-let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m']
-
-
-" TagBar
-let g:tagbar_autoshowtag      = 1  " Open folds if necessary when navigating to a tag
-let g:tagbar_autoclose        = 1  " Focus cursor inside tagbar when opened, and auto close after navigation
-let g:tagbar_show_linenumbers = 2  " Show relative line numbers
-let g:tagbar_foldlevel        = 1  " Custom fold level
-
-
-" AutoClose
-let g:autoclose_vim_commentmode = 1
-
-
-" JSON syntax settings
-autocmd FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=1
-
-
-" Syntax highlighting for Vagrantfile
-augroup vagrant
-  au!
-  au BufRead,BufNewFile Vagrantfile set filetype=ruby
-augroup END
-
-
-" Custom snippet libraries
-let g:neosnippet#snippets_directory = '~/.vim/bundle/coffeescript-vim-snippets'
-
-
-" CoffeeScript
-let coffee_compile_vert = 1
-let coffee_watch_vert   = 1
-let coffee_run_vert     = 1
-autocmd FileType coffee setlocal foldmethod=indent foldlevel=2
-autocmd FileType coffee autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-
-
-" CoffeeTags
-let g:CoffeeAutoTagIncludeVars = 1
-
-
-" Handlebars
-let g:mustache_abbreviations = 1
-
-
-" Markdown preview via Marked.app
-function! s:setupMarkdownPreview()
-  nnoremap <leader>md :silent !open -a Marked.app '%:p'<cr>
-endfunction
-autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPreview()
-
-
-
-" KEY MAPPINGS "
-
-
-" Zoom current split
-nnoremap <Leader>- <C-W><Bar>
-nnoremap <Leader>_ <C-W>_
-
-
-" Insert new lines with Enter key
-nmap <CR> o<Esc>
-nmap <S-CR> O<Esc>
-
-
-" Center cursor with spacebar in normal mode
-nnoremap <Space> zz
-
-
-" Vim-Over
-nnoremap <C-f> :OverCommandLine<CR>%s/
-
-
-" Get rid of unused SPF13 JSON mapping (causes lag with below EasyMotion mapping)
-nunmap <Leader>jt
-
-
-" EasyMotion - Search
-nmap s <Plug>(easymotion-s2)
-vmap s <Plug>(easymotion-s2)
-map / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map n <Plug>(easymotion-next)
-map N <Plug>(easymotion-prev)
-nmap * /<C-r><C-w><CR>
-
-
-" EasyMotion - Arrows
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
-
-
-" Tmux commands
-noremap <Leader>tst :call VimuxSendKeys("C-c") <Bar> call VimuxRunCommand("clear; npm test")<CR>
-noremap <Leader>stt :call VimuxSendKeys("C-c") <Bar> call VimuxRunCommand("clear; npm start")<CR>
-noremap <Leader>dbg :call VimuxSendKeys("C-c") <Bar> call VimuxRunCommand("clear; npm run debug")<CR>
-noremap <Leader>grr :call VimuxSendKeys("C-c") <Bar> call VimuxRunCommand("clear; grunt")<CR>
+" Modeline and Notes {
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+" }
+
+" General {
+
+    " Use zsh as shell
+    set shell=/bin/zsh
+
+" }
+
+" Vim UI {
+
+    " User patched Powerline fonts
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h13,Menlo\ Regular:h15
+
+    " Highlight column 80
+    set colorcolumn=80
+
+    " Solarized
+    if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+        let g:solarized_termcolors = 16 " TODO: Is there a way to only run this if inside iTerm?
+        set background=dark
+        colorscheme solarized
+    endif
+
+    " Tmux
+    if exists('$TMUX')
+        " Different cursor for insert mode
+        let &t_SI = "\<Esc>[3 q"
+        let &t_EI = "\<Esc>[0 q"
+    endif
+
+" }
+
+" Formatting {
+
+    " Override some spf13 defaults
+    set shiftwidth=2  " Use indents of 2 spaces
+    set tabstop=2     " An indentation every 2 columns
+    set softtabstop=2 " Let backspace delete indent
+
+    " JSON syntax settings
+    autocmd FileType json setlocal conceallevel=0 foldmethod=syntax foldlevel=1
+
+
+    " Syntax highlighting for Vagrantfile
+    augroup vagrant
+        au!
+        au BufRead,BufNewFile Vagrantfile set filetype=ruby
+    augroup END
+
+" }
+
+" Plugins {
+
+    " LocalRC
+    if isdirectory(expand("~/.vim/bundle/vim-localrc"))
+        let g:localrc_filename = '.vimrc.local'
+        let g:localrc_filetype = '/^\.vimrc\..*\<%s\>.*\.local$'
+    endif
+
+    " Indent Guides
+    if isdirectory(expand("~/.vim/bundle/vim-indent-guides"))
+        let g:indent_guides_guide_size  = 2
+        let g:indent_guides_start_level = 1
+        let g:indent_guides_auto_colors = 0
+        autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=NONE
+        autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=Black
+    endif
+
+    " Airline
+    if isdirectory(expand("~/.vim/bundle/vim-airline"))
+        let g:airline_exclude_preview                  = 1
+        "let g:airline#extensions#tabline#enabled       = 1  " Enable tabline
+        "let g:airline#extensions#tabline#tab_min_count = 2  " Only show tabline if using multiple tabs
+        "let g:airline#extensions#tabline#show_buffers  = 0  " Use MBE for buffers instead
+    endif
+
+    " Tmuxline
+    if isdirectory(expand("~/.vim/bundle/tmuxline.vim"))
+        let g:tmuxline_preset = 'crosshair'
+        "let g:tmuxline_theme  = 'airline_insert'
+        "let g:airline#extensions#tmuxline#enabled = 0
+    endif
+
+    " CtrlP
+    if isdirectory(expand("~/.vim/bundle/ctrlp.vim"))
+        let g:ctrlp_extensions   = ['buffertag']          " Enable searching for CTAGS in the current buffer
+        let g:ctrlp_root_markers = ['Gruntfile.coffee']
+        let g:ctrlp_show_hidden  = 1
+        let g:ctrlp_lazy_update  = 100
+    endif
+
+    " YouCompleteMe
+    if isdirectory(expand("~/.vim/bundle/YouCompleteMe"))
+        let g:ycm_min_num_of_chars_for_completion     = 1
+        let g:ycm_complete_in_comments                = 1
+        let g:ycm_collect_identifiers_from_tags_files = 1
+        let g:ycm_seed_identifiers_with_syntax        = 1
+        let g:ycm_cache_omnifunc                      = 0
+        let g:ycm_key_list_previous_completion        = ['<C-Tab>', '<Up>']
+        let g:ctrlspace_load_last_workspace_on_start  = 1
+        let g:ctrlspace_save_workspace_on_exit        = 1
+    endif
+
+    " Ack
+    if isdirectory(expand("~/.vim/bundle/ack.vim"))
+        let g:ack_use_dispatch     = 1
+        let g:ackhighlight         = 1
+        let g:ack_autofold_results = 1
+    endif
+
+    " Syntastic
+    if isdirectory(expand("~/.vim/bundle/syntastic"))
+        let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'active_filetypes': [],
+            \ 'passive_filetypes': ['html'] }
+    endif
+
+    " UndoTree
+    if isdirectory(expand("~/.vim/bundle/undotree"))
+        let g:undotree_SplitWidth    = 35
+        let g:undotree_TreeNodeShape = '◉'
+    endif
+
+    " NERDTree
+    if isdirectory(expand("~/.vim/bundle/nerdtree"))
+        let NERDTreeShowLineNumbers             = 1
+        let NERDTreeIgnore                      = ['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.map$', '.DS_Store']
+        let NERDTreeMapOpenVSplit               = 'v'
+        let NERDTreeAutoCenterThreshold         = 50
+        let NERDTreeShowBookmarks               = 0
+        let NERDTreeAutoDeleteBuffer            = 1
+        let g:nerdtree_tabs_smart_startup_focus = 1
+    endif
+
+    " Numbers
+    if isdirectory(expand("~/.vim/bundle/numbers.vim"))
+        let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m']
+    endif
+
+    " TagBar
+    if isdirectory(expand("~/.vim/bundle/tagbar"))
+        let g:tagbar_autoshowtag      = 1  " Open folds if necessary when navigating to a tag
+        let g:tagbar_autoclose        = 1  " Focus cursor inside tagbar when opened, and auto close after navigation
+        let g:tagbar_show_linenumbers = 2  " Show relative line numbers
+        let g:tagbar_foldlevel        = 1  " Custom fold level
+    endif
+
+    " AutoClose
+    if isdirectory(expand("~/.vim/bundle/vim-autoclose"))
+        let g:autoclose_vim_commentmode = 1
+    endif
+
+    " Custom snippet libraries
+    let g:neosnippet#snippets_directory = '~/.vim/bundle/coffeescript-vim-snippets'
+
+    " CoffeeScript
+    if isdirectory(expand("~/.vim/bundle/vim-coffee-script"))
+        let coffee_compile_vert = 1
+        let coffee_watch_vert   = 1
+        let coffee_run_vert     = 1
+        autocmd FileType coffee setlocal foldmethod=indent foldlevel=2
+        autocmd FileType coffee autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+    endif
+
+    " CoffeeTags
+    if isdirectory(expand("~/.vim/bundle/CoffeeTags"))
+        let g:CoffeeAutoTagIncludeVars = 1
+    endif
+
+    " Handlebars
+    if isdirectory(expand("~/.vim/bundle/vim-mustache-handlebars"))
+        let g:mustache_abbreviations = 1
+    endif
+
+
+
+" }
+
+" Key (re)Mappings {
+
+    " General {
+
+        " Zoom current split
+        nnoremap <Leader>- <C-W><Bar>
+        nnoremap <Leader>_ <C-W>_
+
+        " Insert new lines with Enter key
+        nmap <CR> o<Esc>
+        nmap <S-CR> O<Esc>
+
+        " Center cursor with spacebar in normal mode
+        nnoremap <Space> zz
+
+        " Get rid of unused SPF13 JSON mapping (causes lag with below EasyMotion mapping)
+        nunmap <Leader>jt
+
+    " }
+
+    " Vim-Over {
+        if isdirectory(expand("~/.vim/bundle/vim-over"))
+            nnoremap <C-f> :OverCommandLine<CR>%s/
+        endif
+    " }
+
+    " EasyMotion {
+        if isdirectory(expand("~/.vim/bundle/vim-easymotion"))
+
+            " Search
+            nmap s <Plug>(easymotion-s2)
+            vmap s <Plug>(easymotion-s2)
+            map / <Plug>(easymotion-sn)
+            omap / <Plug>(easymotion-tn)
+            map n <Plug>(easymotion-next)
+            map N <Plug>(easymotion-prev)
+            nmap * /<C-r><C-w><CR>
+
+
+            " Arrow navigation
+            map <Leader>l <Plug>(easymotion-lineforward)
+            map <Leader>j <Plug>(easymotion-j)
+            map <Leader>k <Plug>(easymotion-k)
+            map <Leader>h <Plug>(easymotion-linebackward)
+
+        endif
+    " }
+
+    " Vimux {
+        if isdirectory(expand("~/.vim/bundle/vimux"))
+            noremap <Leader>tst :call VimuxSendKeys("C-c") <Bar> call VimuxRunCommand("clear; npm test")<CR>
+            noremap <Leader>stt :call VimuxSendKeys("C-c") <Bar> call VimuxRunCommand("clear; npm start")<CR>
+            noremap <Leader>dbg :call VimuxSendKeys("C-c") <Bar> call VimuxRunCommand("clear; npm run debug")<CR>
+            noremap <Leader>grr :call VimuxSendKeys("C-c") <Bar> call VimuxRunCommand("clear; grunt")<CR>
+        endif
+    " }
+
+    " Misc {
+
+        " Markdown preview via Marked.app
+        function! s:setupMarkdownPreview()
+            nnoremap <leader>md :silent !open -a Marked.app '%:p'<cr>
+        endfunction
+        autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPreview()
+
+    " }
+
+" }
