@@ -176,6 +176,27 @@ nnoremap <Space> zz
 nnoremap <C-f> :OverCommandLine<CR>%s/
 
 
+" Get rid of unused SPF13 JSON mapping (causes lag with below EasyMotion mapping)
+nunmap <Leader>jt
+
+
+" EasyMotion - Search
+nmap s <Plug>(easymotion-s2)
+vmap s <Plug>(easymotion-s2)
+map / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map n <Plug>(easymotion-next)
+map N <Plug>(easymotion-prev)
+nmap * /<C-r><C-w><CR>
+
+
+" EasyMotion - Arrows
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+
 " Tmux commands
 noremap <Leader>tst :call VimuxSendKeys("C-c") <Bar> call VimuxRunCommand("clear; npm test")<CR>
 noremap <Leader>stt :call VimuxSendKeys("C-c") <Bar> call VimuxRunCommand("clear; npm start")<CR>
