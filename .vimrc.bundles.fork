@@ -1,3 +1,21 @@
+" Remove some SPF13 default plugins
+UnBundle 'bling/vim-bufferline'
+UnBundle 'tpope/vim-cucumber'
+UnBundle 'quentindecock/vim-cucumber-align-pipes'
+UnBundle 'justinmk/vim-sneak'
+UnBundle 'godlygeek/csapprox'
+UnBundle 'altercation/vim-colors-solarized'
+
+" General
+Plugin 'szw/vim-ctrlspace'
+Plugin 'thinca/vim-localrc'
+Plugin 'ciaranm/detectindent'
+Plugin 'jtratner/vim-flavored-markdown'
+Plugin 'kshenoy/vim-signature'
+Plugin 'henrik/vim-qargs'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'tpope/vim-dispatch'
+
 " Testing/debugging
 Plugin 'joonty/vdebug'
 Plugin 'joonty/vim-phpunitqf'
@@ -18,25 +36,8 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'sjl/vitality.vim'
 
-" General
-Plugin 'thinca/vim-localrc'
-Plugin 'ciaranm/detectindent'
-Plugin 'jtratner/vim-flavored-markdown'
-Plugin 'kshenoy/vim-signature'
-Plugin 'techlivezheng/vim-plugin-minibufexpl'
-Plugin 'henrik/vim-qargs'
-Plugin 'myusuf3/numbers.vim'
-Plugin 'tpope/vim-dispatch'
-
 " Snippets
 Plugin 'adambiggs/coffeescript-vim-snippets'
-
-" Unbundled
-UnBundle 'bling/vim-bufferline'
-UnBundle 'tpope/vim-cucumber'
-UnBundle 'quentindecock/vim-cucumber-align-pipes'
-UnBundle 'justinmk/vim-sneak'
-UnBundle 'godlygeek/csapprox'
 
 " Deactivated (for now)
 "Plugin 'mklabs/grunt.vim'
@@ -46,3 +47,4 @@ UnBundle 'godlygeek/csapprox'
 "Plugin 't9md/vim-quickhl'
 "Plugin 'nelstrom/vim-visual-star-search'
 "Plugin 'Yggdroot/indentLine' " Breaks some syntax highlighting.
+"Plugin 'techlivezheng/vim-plugin-minibufexpl'

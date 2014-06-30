@@ -57,11 +57,6 @@ let g:tmuxline_preset                     = 'full'
 let g:airline#extensions#tmuxline#enabled = 0
 
 
-" MiniBufExplorer
-let g:miniBufExplBRSplit       = 0  " Put MBE at the top of the screen
-let g:miniBufExplBuffersNeeded = 0  " Always show MBE
-
-
 " CtrlP
 let g:ctrlp_extensions   = ['buffertag']          " Enable searching for CTAGS in the current buffer
 let g:ctrlp_root_markers = ['Gruntfile.coffee']
@@ -172,13 +167,6 @@ autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPr
 
 
 " KEY MAPPINGS "
-
-
-" Reset MBE window position after moving windows
-map <C-w>H <C-w>H:MBEOpen!<CR><Leader>=
-map <C-w>J <C-w>J:MBEOpen!<CR><Leader>=
-map <C-w>K <C-w>K:MBEOpen!<CR><Leader>=
-map <C-w>L <C-w>L:MBEOpen!<CR><Leader>=
 
 
 " Zoom current split
