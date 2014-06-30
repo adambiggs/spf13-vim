@@ -102,8 +102,7 @@ let g:nerdtree_tabs_smart_startup_focus = 1
 
 
 " Numbers
-autocmd BufEnter * call NumbersEnable() " Brute-force fix to make less buggy
-autocmd BufLeave * set number
+let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m']
 
 
 " TagBar
@@ -111,12 +110,6 @@ let g:tagbar_autoshowtag      = 1  " Open folds if necessary when navigating to 
 let g:tagbar_autoclose        = 1  " Focus cursor inside tagbar when opened, and auto close after navigation
 let g:tagbar_show_linenumbers = 2  " Show relative line numbers
 let g:tagbar_foldlevel        = 1  " Custom fold level
-
-
-" QuickHL
-let g:quickhl_cword_enable_at_startup = 1
-let g:quickhl_cword_hl_command = 'link QuickhlCword QuickhlTag' " Change default word highlighting to be less annoying
-autocmd InsertLeave * call quickhl#cword#enable()               " Hack alert! `g:quickhl_..._enable_at_startup` doesn't seem to work...
 
 
 " AutoClose
@@ -139,7 +132,9 @@ let g:neosnippet#snippets_directory = '~/.vim/bundle/coffeescript-vim-snippets'
 
 
 " CoffeeScript
-let coffee_compile_vert = 1 " Show compiled output in a vertical split
+let coffee_compile_vert = 1
+let coffee_watch_vert   = 1
+let coffee_run_vert     = 1
 autocmd FileType coffee setlocal foldmethod=indent foldlevel=2
 autocmd FileType coffee autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
