@@ -31,8 +31,8 @@ let g:localrc_filetype = '/^\.vimrc\..*\<%s\>.*\.local$'
 let g:indent_guides_guide_size  = 2
 let g:indent_guides_start_level = 1
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=8
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=NONE
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=Black
 
 
 " Airline
