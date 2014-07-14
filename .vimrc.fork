@@ -243,6 +243,15 @@
         endif
     " }
 
+
+    " UtilSnips {
+        if isdirectory(expand("~/.vim/bundle/ultisnips"))
+            let g:UltiSnipsExpandTrigger       = "<C-L>"
+            let g:UltiSnipsJumpForwardTrigger  = "<C-J>"
+            let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
+        endif
+    " }
+
     " Misc {
 
         " Markdown preview via Marked.app
