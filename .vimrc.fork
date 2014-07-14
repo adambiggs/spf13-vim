@@ -243,6 +243,11 @@
         endif
     " }
 
+    " NERDTree {
+        if isdirectory(expand("~/.vim/bundle/nerdtree"))
+            map <C-e> :NERDTreeToggle<CR>
+        endif
+    " }
 
     " UtilSnips {
         if isdirectory(expand("~/.vim/bundle/ultisnips"))

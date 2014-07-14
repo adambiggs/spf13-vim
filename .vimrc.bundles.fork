@@ -5,6 +5,7 @@ UnBundle 'quentindecock/vim-cucumber-align-pipes'
 UnBundle 'justinmk/vim-sneak'
 UnBundle 'godlygeek/csapprox'
 UnBundle 'altercation/vim-colors-solarized'
+UnBundle 'jistr/vim-nerdtree-tabs'
 
 " General
 Plugin 'szw/vim-ctrlspace'
