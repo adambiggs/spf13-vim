@@ -195,8 +195,6 @@
         endif
     " }
 
-
-
 " }
 
 " Key (re)Mappings {
@@ -207,16 +205,15 @@
         nnoremap <Leader>- <C-W><Bar>
         nnoremap <Leader>_ <C-W>_
 
-        " Insert new lines with Enter key
-        nmap <CR> o<Esc>
-        nmap <S-CR> O<Esc>
-
-        " Center cursor with spacebar in normal mode
-        nnoremap <Space> zz
-
         " Get rid of unused SPF13 JSON mapping (causes lag with below EasyMotion mapping)
         nunmap <Leader>jt
 
+    " }
+
+    " CoffeeScript {
+        if isdirectory(expand("~/.vim/bundle/vim-coffee-script"))
+            nnoremap <Leader>cw :CoffeeWatch<CR>
+        endif
     " }
 
     " Vim-Over {
@@ -266,6 +263,12 @@
     " NERDTree {
         if isdirectory(expand("~/.vim/bundle/nerdtree"))
             map <C-e> :NERDTreeToggle<CR>
+        endif
+    " }
+
+    " CtrlP-Funky {
+        if isdirectory(expand("~/.vim/bundle/ctrlp-funky"))
+            map <C-i> :CtrlPFunky<CR>
         endif
     " }
 

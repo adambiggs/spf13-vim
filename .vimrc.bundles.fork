@@ -4,7 +4,7 @@ UnBundle 'tpope/vim-cucumber'
 UnBundle 'quentindecock/vim-cucumber-align-pipes'
 UnBundle 'justinmk/vim-sneak'
 UnBundle 'godlygeek/csapprox'
-UnBundle 'altercation/vim-colors-solarized'
+UnBundle 'gorodinskiy/vim-coloresque'
 UnBundle 'jistr/vim-nerdtree-tabs'
 
 " General
