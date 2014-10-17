@@ -1,5 +1,5 @@
 " Use a stripped-down subset of the default SPF13 plugin groups
-let g:spf13_bundle_groups = ['general', 'youcompleteme', 'programming', 'php', 'javascript', 'html', 'misc']
+let g:spf13_bundle_groups = ['general', 'youcompleteme', 'programming', 'php', 'javascript', 'html']
 
 " Prevent automatically changing to open file directory
 let g:spf13_no_autochdir = 1

@@ -1,11 +1,11 @@
 " Remove some SPF13 default plugins
 UnBundle 'bling/vim-bufferline'
-UnBundle 'tpope/vim-cucumber'
-UnBundle 'quentindecock/vim-cucumber-align-pipes'
-UnBundle 'justinmk/vim-sneak'
-UnBundle 'godlygeek/csapprox'
 UnBundle 'gorodinskiy/vim-coloresque'
 UnBundle 'jistr/vim-nerdtree-tabs'
+UnBundle 'kien/ctrlp.vim'
+UnBundle 'tacahiroy/ctrlp-funky'
+UnBundle 'terryma/vim-multiple-cursors'
+UnBundle 'mileszs/ack.vim'
 
 " General
 Plugin 'szw/vim-ctrlspace'
@@ -14,8 +14,9 @@ Plugin 'ciaranm/detectindent'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'kshenoy/vim-signature'
 Plugin 'henrik/vim-qargs'
-Plugin 'myusuf3/numbers.vim'
 Plugin 'tpope/vim-dispatch'
+"Plugin 'myusuf3/numbers.vim'
+"Plugin 'bruno-/vim-husk'
 
 " Testing/debugging
 Plugin 'joonty/vdebug'
@@ -30,6 +31,8 @@ Plugin 'michalliu/sourcebeautify.vim'
 Plugin 'michalliu/jsruntime.vim'
 Plugin 'michalliu/jsoncodecs.vim'
 Plugin 'lukaszkorecki/CoffeeTags'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'ekalinin/Dockerfile.vim'
 
 " Tmux
 Plugin 'benmills/vimux'
