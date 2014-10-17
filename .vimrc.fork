@@ -155,12 +155,6 @@
         endif
     " }
 
-    " Numbers {
-        if isdirectory(expand("~/.vim/bundle/numbers.vim"))
-            let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m']
-        endif
-    " }
-
     " AutoClose {
         if isdirectory(expand("~/.vim/bundle/vim-autoclose"))
             let g:autoclose_vim_commentmode = 1
