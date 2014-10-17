@@ -226,12 +226,7 @@
             " Search
             nmap s <Plug>(easymotion-s2)
             vmap s <Plug>(easymotion-s2)
-            map / <Plug>(easymotion-sn)
-            omap / <Plug>(easymotion-tn)
-            map n <Plug>(easymotion-next)
-            map N <Plug>(easymotion-prev)
             nmap * /<C-r><C-w><CR>
-
 
             " Arrow navigation
             map <Leader>l <Plug>(easymotion-lineforward)
