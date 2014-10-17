@@ -215,7 +215,8 @@
 
     " Vim-Over {
         if isdirectory(expand("~/.vim/bundle/vim-over"))
-            nnoremap <C-f> :OverCommandLine<CR>%s/
+            nnoremap <f> :OverCommandLine<CR>%s/
+            nnoremap <C-f> :OverCommandLine<CR>%s/<C-r><C-w>/
         endif
     " }
 
