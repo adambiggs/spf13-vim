@@ -6,6 +6,9 @@ UnBundle 'justinmk/vim-sneak'
 UnBundle 'godlygeek/csapprox'
 UnBundle 'gorodinskiy/vim-coloresque'
 UnBundle 'jistr/vim-nerdtree-tabs'
+UnBundle 'kien/ctrlp.vim'
+UnBundle 'tacahiroy/ctrlp-funky'
+UnBundle 'mileszs/ack.vim'
 
 " General
 Plugin 'szw/vim-ctrlspace'
@@ -16,6 +19,11 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'henrik/vim-qargs'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'tpope/vim-dispatch'
+
+" Fuzzy Finder
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'heavenshell/unite-sf2'
 
 " Testing/debugging
 Plugin 'joonty/vdebug'
