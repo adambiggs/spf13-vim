@@ -2,10 +2,7 @@
 UnBundle 'bling/vim-bufferline'
 UnBundle 'gorodinskiy/vim-coloresque'
 UnBundle 'jistr/vim-nerdtree-tabs'
-UnBundle 'kien/ctrlp.vim'
-UnBundle 'tacahiroy/ctrlp-funky'
 UnBundle 'terryma/vim-multiple-cursors'
-UnBundle 'mileszs/ack.vim'
 
 " General
 Plugin 'szw/vim-ctrlspace'
