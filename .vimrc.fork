@@ -31,6 +31,9 @@
         let &t_EI = "\<Esc>[0 q"
     endif
 
+    " Automatically check for changed files outside Vim
+    autocmd BufRead,BufEnter,FocusGained * checktime
+
 " }
 
 " Formatting {
