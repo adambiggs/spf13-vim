@@ -149,7 +149,7 @@
             let NERDTreeIgnore                      = ['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.map$', '.DS_Store']
             let NERDTreeMapOpenVSplit               = 'v'
             let NERDTreeAutoCenterThreshold         = 50
-            let NERDTreeShowBookmarks               = 0
+            "let NERDTreeShowBookmarks               = 0
             let NERDTreeAutoDeleteBuffer            = 1
             let g:nerdtree_tabs_smart_startup_focus = 1
         endif
