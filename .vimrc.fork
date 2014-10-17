@@ -248,8 +248,8 @@
 
     " Wildfire {
         if isdirectory(expand("~/.vim/bundle/wildfire.vim"))
-            let g:wildfire_fuel_map  = "S"
-            let g:wildfire_water_map = "B"
+            "let g:wildfire_fuel_map  = "S"
+            "let g:wildfire_water_map = "B"
         endif
     " }
 
